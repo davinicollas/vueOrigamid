@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="vue.js"></script>
+  <title>VueJs</title>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="handleClick">Clique aqui</button>
+    <button v-on:click="contado++">Contador</button>
+    <p>{{contado}}</p>
+    <button v-on:click="ativo = !ativo ">sumir/aparece</button>
+     <p v-if="ativo">O gato e grande</p>
+  </div>
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data:{
+        contado: 0,
+        ativo: true
+      },
+      methods: {
+        handleClick(event){
+          console.log(event);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
