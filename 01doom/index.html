@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>VueJs</title>
+</head>
+<body>
+    <!--Usando vue.js-->
+
+  <div id="app">
+    <p>Bermudas - R$<span>{{preco}}</span></p>
+    <button @click="total++">Adiconar</button>
+    <button @click="total--">Remover</button>
+    <span>{{total}}</span>
+    <p>Total:<span>{{preco*total}}</span></p>
+  </div>
+  <!--Usando JS-->
+  <div>
+    <p>Camisas - R$<span class="preco"></span></p>
+    <button class="adiconar">Adiconar</button>
+    <button class="remover">Remover</button>
+    <span class="total"></span>
+    <p>Total: <span class="precoTotal"></span></p>
+  </div>
+  <script>
+     const vm = new Vue({
+      el: "#app",
+      data: {
+      preco:69,
+      total:0
+    }
+  });
+    const dado = {
+      preco: 49,
+      total: 0
+    }
+    const preco = document.querySelector(".preco");
+    const adicionar = document.querySelector(".adiconar");
+    const remover = document.querySelector(".remover");
+    const total = document.querySelector(".total");
+    const precoTotal = document.querySelector(".precoTotal");
+    preco.innerText = dado.preco;
+    total.innerText = dado.total;
+    precoTotal.innerText = dado.preco * dado.total;
+    
+    function incrementar(){
+      dado.total ++;
+      atualizarfeed();
+    }
+    function descrementar(){
+      dado.total --;
+      atualizarfeed();
+    }
+    function atualizarfeed(){
+      total.innerText = dado.total;
+      precoTotal.innerText = dado.total * dado.preco;
+    }
+
+
+    adicionar.addEventListener("click",incrementar);
+    remover.addEventListener("click",descrementar);
+
+
+  </script>
+</body>
+</html>
